@@ -64,11 +64,17 @@ public class CoffeeFragment  extends ListFragment implements  OnClickListener
 
   private void onCoffDelete(final Coffee coffee) {
 
+    //getting the coffee name from the coffee object
     String stringName = coffee.name;
+
+    //create AlertDialog.Builder object
     AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+    //setting the message to show in alertDialog
     builder.setMessage("Are you sure you want to Delete the \'Coffee\' " +
             stringName + "?");
+    //setCancelable will force the alertdialog to not get dismissed from outside touch events
     builder.setCancelable(false);
+    //clicking on yes will remove the coffee object
     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener()
     {
       public void onClick(DialogInterface dialog, int id)
@@ -93,11 +99,16 @@ public class CoffeeFragment  extends ListFragment implements  OnClickListener
   public void onListItemClick(ListView l, View v, int position, long id) {
     super.onListItemClick(l, v, position, id);
 
+    //creating a new bundle named coffee info to push to Edit.java class
     Bundle coffeeInfo = new Bundle();
     coffeeInfo.putLong("coffeeID",id+1);
-
+    //intent pushes user from coffeeFragment to Edit.java
     Intent gotoEdit = new Intent(getActivity(), Edit.class);
+    //adding the the position of the list view item to pass to edit.java
+    //only the position is required and not the whole list
+    // because we already have the list in Base.java which the Edit.java extends
     gotoEdit.putExtras(coffeeInfo);
+    //start intent
    getActivity().startActivity(gotoEdit);
   }
 }

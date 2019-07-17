@@ -53,6 +53,7 @@ public class Home extends Base {
     protected void onResume() {
         super.onResume();
 
+
         coffeeFragment = CoffeeFragment.newInstance(); //get a new Fragment instance
         getFragmentManager().beginTransaction().add(R.id.fragment_layout,
                 coffeeFragment).commit();

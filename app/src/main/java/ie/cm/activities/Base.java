@@ -3,6 +3,7 @@ package ie.cm.activities;
 import java.util.ArrayList;
 
 import ie.cm.models.Coffee;
+import ie.cm.fragments.CoffeeFragment;
 import ie.cm.R;
 import android.app.Activity;
 import android.app.Dialog;
@@ -12,10 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Base extends AppCompatActivity {
 
-	protected static ArrayList<Coffee> coffeeList = new ArrayList<Coffee>();
+	public static ArrayList<Coffee> 	coffeeList = new ArrayList<Coffee>();
+	protected Bundle            		activityInfo; // Used for persistence (of sorts)
+	protected CoffeeFragment    		coffeeFragment; // How we'll 'share' our List of Coffees between Activities
 
 	protected void goToActivity(Activity current,
 								Class<? extends Activity> activityClass,
@@ -62,4 +66,8 @@ public class Base extends AppCompatActivity {
     {
         goToActivity(this, Home.class, null);
     }
+
+	protected void toastMessage(String s) {
+		Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+	}
 }

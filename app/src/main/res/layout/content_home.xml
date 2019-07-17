@@ -2,12 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/home"
-    tools:context=".Home">
+    tools:context=".activities.Home">
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,7 +27,7 @@
             <Button
                 android:id="@+id/addACoffeeBtn"
                 style="@android:style/Holo.Light.ButtonBar"
-                android:layout_width="100dp"
+                android:layout_width="115dp"
                 android:layout_height="140dp"
                 android:layout_margin="2dp"
                 android:drawableTop="@drawable/ic_add_location"
@@ -37,7 +38,7 @@
             <Button
                 android:id="@+id/searchCoffeesBtn"
                 style="@android:style/Holo.Light.ButtonBar"
-                android:layout_width="100dp"
+                android:layout_width="115dp"
                 android:layout_height="140dp"
                 android:layout_margin="2dp"
                 android:drawableTop="@drawable/ic_list"
@@ -47,7 +48,7 @@
             <Button
                 android:id="@+id/favouritesCoffeeBtn"
                 style="@android:style/Holo.Light.ButtonBar"
-                android:layout_width="100dp"
+                android:layout_width="115dp"
                 android:layout_height="140dp"
                 android:layout_margin="2dp"
                 android:drawableTop="@drawable/ic_favourite_off"
@@ -69,21 +70,24 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
-            <ListView
-                android:id="@+id/recentlyAddedList"
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:id="@+id/fragment_layout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/footerLinearLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true" />
 
-            <TextView
-                android:id="@+id/recentlyAddedListEmpty"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:gravity="center"
-                android:text="@string/recentlyViewedListEmptyMessage"
-                android:textColor="@color/appFontColor"
-                android:layout_above="@+id/footerLinearLayout" />
+            <!--<TextView-->
+                <!--android:id="@+id/recentlyAddedListEmpty"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/recentlyViewedListEmptyMessage"-->
+                <!--android:textColor="@color/appFontColor"-->
+                <!--android:layout_above="@+id/footerLinearLayout"-->
+                <!--android:layout_alignParentEnd="true" />-->
 
             <LinearLayout
                 android:id="@+id/footerLinearLayout"
